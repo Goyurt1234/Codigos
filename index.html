@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Consulta de Código</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #6dd5ed, #2193b0);
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+            padding-top: 100px;
+        }
+        input, button {
+            font-size: 18px;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            border: none;
+        }
+        #resultado {
+            margin-top: 30px;
+            font-size: 24px;
+            background-color: #008080;
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>DIGITE SU NÚMERO DE CÉDULA</h2>
+    <input type="text" id="cedulaInput" placeholder="Ej: 12345678">
+    <button onclick="buscarCodigo()">Consultar</button>
+
+    <div id="resultado"></div>
+
+    <script>
+        // Datos directamente incrustados (puedes agregar más abajo)
+        const datos = [
+            { cedula: '1233145', codigo: 'dhj123', fecha: '14/07/2025' },
+            { cedula: '1233145', codigo: 'dhj124', fecha: '15/07/2025' },
+            { cedula: '1233145', codigo: 'dhj125', fecha: '16/07/2025' },
+            { cedula: '1233146', codigo: 'dhj126', fecha: '14/07/2025' },
+            { cedula: '1233146', codigo: 'dhj127', fecha: '15/07/2025' },
+            { cedula: '1233146', codigo: 'dhj128', fecha: '16/07/2025' }
+        ];
+
+        function convertirFecha(fechaTexto) {
+            const partes = fechaTexto.split('/');
+            if (partes.length !== 3) return '';
+            const [dia, mes, anio] = partes;
+            return `${anio}-${mes.padStart(2, '0')}-${dia.padStart(2, '0')}`;
+        }
+
+        function buscarCodigo() {
+            const cedula = document.getElementById("cedulaInput").value.trim();
+            const hoy = new Date().toISOString().split('T')[0]; // yyyy-mm-dd
+            const resultado = document.getElementById("resultado");
+
+            const encontrado = datos.find(row =>
+                row.cedula === cedula && convertirFecha(row.fecha) === hoy
+            );
+
+            if (encontrado) {
+                resultado.textContent = "SU CÓDIGO ES: " + encontrado.codigo;
+            } else {
+                resultado.textContent = "No hay código para hoy.";
+            }
+        }
+    </script>
+
+</body>
+</html>
