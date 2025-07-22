@@ -28,9 +28,10 @@
     }
 
     h2 {
-      margin-bottom: 30px;
+      margin-bottom: 40px;
       font-size: 2em;
       max-width: 90%;
+      text-shadow: 2px 2px 4px #000;
     }
 
     .form-container {
@@ -38,42 +39,53 @@
       flex-wrap: wrap;
       justify-content: center;
       align-items: center;
-      gap: 15px;
+      gap: 20px;
       width: 100%;
       max-width: 600px;
     }
 
     input, button {
-      font-size: 1.1em;
-      padding: 12px 20px;
-      border-radius: 8px;
+      font-size: 24px;
+      padding: 18px 24px;
+      border-radius: 10px;
       border: none;
-      width: 100%;
-      max-width: 300px;
+      width: 90%;
+      max-width: 400px;
+      background-color: rgba(255, 255, 255, 0.9);
+      color: #000;
+    }
+
+    button {
+      background-color: rgba(0, 128, 128, 0.9);
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: rgba(0, 100, 100, 0.9);
     }
 
     #resultado {
-      margin-top: 30px;
-      font-size: 1.5em;
+      margin-top: 40px;
+      font-size: 22px;
       background-color: rgba(0, 128, 128, 0.8);
       padding: 20px;
       border-radius: 10px;
       max-width: 90%;
       word-wrap: break-word;
+      color: white;
     }
 
     @media (max-width: 500px) {
-      h2 {
-        font-size: 1.5em;
-      }
-
       input, button {
-        width: 90%;
-        font-size: 1.2em;
+        font-size: 26px;
+        padding: 20px;
       }
 
       #resultado {
-        font-size: 1.2em;
+        font-size: 20px;
       }
     }
   </style>
