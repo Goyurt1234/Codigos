@@ -15,29 +15,58 @@
       padding-top: 100px;
     }
 
+    .form-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
     input, button {
       font-size: 18px;
-      padding: 10px;
-      margin: 10px;
+      padding: 12px 20px;
       border-radius: 5px;
       border: none;
+      min-width: 200px;
     }
 
     #resultado {
       margin-top: 30px;
       font-size: 24px;
-      background-color: rgba(0, 128, 128, 0.8); /* Fondo semitransparente para mejor visibilidad */
+      background-color: rgba(0, 128, 128, 0.8);
       display: inline-block;
       padding: 15px 30px;
       border-radius: 10px;
+    }
+
+    /* Estilo para móviles o pantallas verticales */
+    @media (max-aspect-ratio: 1/1) {
+      .form-container {
+        flex-direction: column;
+      }
+
+      input, button {
+        font-size: 20px;
+        width: 80%;
+        max-width: 400px;
+      }
+
+      #resultado {
+        width: 90%;
+        font-size: 22px;
+      }
     }
   </style>
 </head>
 <body>
 
   <h2>DIGITE SU NÚMERO DE CÉDULA</h2>
-  <input type="text" id="cedulaInput" placeholder="Ej: 12345678">
-  <button onclick="buscarCodigo()">Consultar</button>
+  <div class="form-container">
+    <input type="text" id="cedulaInput" placeholder="Ej: 12345678">
+    <button onclick="buscarCodigo()">Consultar</button>
+  </div>
 
   <div id="resultado"></div>
 
@@ -68,6 +97,10 @@
       }
     }
   </script>
+
+</body>
+</html>
+
 
 </body>
 </html>
