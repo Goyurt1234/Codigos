@@ -111,13 +111,13 @@
       }
 
       try {
-        const url = "https://script.google.com/macros/s/AKfycbzdzC4xLo71oo5UdeLWH-txzaCI8_iNV9m2ajSoEOzeKmQz6pykCU3Y7x9acKcXm73IYQ/exec?cedula=" + encodeURIComponent(cedula);
+        const url = "https://script.google.com/macros/s/AKfycbwpbAzIQ93a9MsoM96X37mT46EEtQt6HuYYc9lRhw4Yu63qaYNBu4-rEHXflsWap7P4Dw/exec?cedula=" + encodeURIComponent(cedula);
         const response = await fetch(url);
         const codigo = await response.text();
 
         if (codigo.includes("✅")) {
           resultado.textContent = "SU CÓDIGO ES: " + codigo.split("Código: ")[1];
-        } else if (codigo === "NO") {
+        } else if (codigo === "NO" || codigo === "sin código") {
           resultado.textContent = "No hay código para hoy.";
         } else {
           resultado.textContent = codigo;
