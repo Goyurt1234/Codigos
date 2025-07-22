@@ -4,58 +4,76 @@
   <meta charset="UTF-8">
   <title>Consulta de Código</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      color: white;
+    }
+
     body {
       background: url("https://media.licdn.com/dms/image/v2/D4D22AQE8u7w4LwOdHQ/feedshare-shrink_800/B4DZbV8KdrG8Ag-/0/1747346048971?e=2147483647&v=beta&t=egufUkeuyVMNLIwXf1TuoZeWSWByg-p2_tqzef07c6w") no-repeat center center fixed;
       background-size: cover;
-      min-height: 100vh;
-      margin: 0;
-      font-family: Arial, sans-serif;
-      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
-      padding-top: 100px;
+      padding: 20px;
+    }
+
+    h2 {
+      margin-bottom: 30px;
+      font-size: 2em;
+      max-width: 90%;
     }
 
     .form-container {
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
       align-items: center;
-      flex-direction: row;
-      flex-wrap: wrap;
-      gap: 10px;
+      gap: 15px;
+      width: 100%;
+      max-width: 600px;
     }
 
     input, button {
-      font-size: 18px;
+      font-size: 1.1em;
       padding: 12px 20px;
-      border-radius: 5px;
+      border-radius: 8px;
       border: none;
-      min-width: 200px;
+      width: 100%;
+      max-width: 300px;
     }
 
     #resultado {
       margin-top: 30px;
-      font-size: 24px;
+      font-size: 1.5em;
       background-color: rgba(0, 128, 128, 0.8);
-      display: inline-block;
-      padding: 15px 30px;
+      padding: 20px;
       border-radius: 10px;
+      max-width: 90%;
+      word-wrap: break-word;
     }
 
-    /* Estilo para móviles o pantallas verticales */
-    @media (max-aspect-ratio: 1/1) {
-      .form-container {
-        flex-direction: column;
+    @media (max-width: 500px) {
+      h2 {
+        font-size: 1.5em;
       }
 
       input, button {
-        font-size: 20px;
-        width: 80%;
-        max-width: 400px;
+        width: 90%;
+        font-size: 1.2em;
       }
 
       #resultado {
-        width: 90%;
-        font-size: 22px;
+        font-size: 1.2em;
       }
     }
   </style>
@@ -97,10 +115,6 @@
       }
     }
   </script>
-
-</body>
-</html>
-
 
 </body>
 </html>
