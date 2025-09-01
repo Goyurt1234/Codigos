@@ -78,7 +78,7 @@
       background-color: #fffae8;
       flex: 0 0 7.41%;
       display: flex;
-      justify-content: space-between;  /* izquierda y derecha */
+      justify-content: space-between;  
       align-items: flex-end;           
       padding-left: 10px;
       padding-bottom: 2px;             
@@ -105,6 +105,14 @@
       gap: 6px;
     }
 
+    /* 🔹 Distribución vertical igual que RD */
+    .left .link-btn:first-of-type {
+      margin-top: auto;
+    }
+    .left .link-btn:last-of-type {
+      margin-bottom: auto;
+    }
+
     .right {
       background-color: #fff3b1;
       display: flex;
@@ -115,7 +123,7 @@
       gap: 6px;
     }
 
-    /* centrado vertical solo en botones de RD */
+    /* RD ya tenía distribución vertical */
     .right .link-btn:first-of-type {
       margin-top: auto;
     }
@@ -166,16 +174,16 @@
     /* 🔹 Imágenes flotantes dentro de section4 */
     .floating-icons {
       display: flex;
-      flex-direction: row;       /* horizontal */
-      gap: 20px;                 /* espacio entre logos */
-      height: 100%;              /* ocupar toda la altura de section4 */
-      justify-content: center;   /* centrado horizontal */
-      align-items: center;       /* centrado vertical */
+      flex-direction: row;       
+      gap: 20px;                 
+      height: 100%;              
+      justify-content: center;   
+      align-items: center;       
       padding-right: 10px;
     }
 
     .floating-icons img {
-      height: 30%;   /* mismo estilo original */
+      height: 30%;   
       width: auto;
       object-fit: contain;
     }
@@ -190,7 +198,7 @@
 
     <div class="section3">
       <div class="left">
-        <h2>Colombias</h2>
+        <h2>Colombia</h2>
         <a class="link-btn" href="https://sites.google.com/goyurt.com.co/informe-diario-goyurt/p%C3%A1gina-principal" target="_blank">Ventas Diarias</a>
         <a class="link-btn" href="https://sites.google.com/goyurt.com.co/informehb-acumulado/p%C3%A1gina-principal" target="_blank">Ventas Acumuladas</a>
         <a class="link-btn" href="https://sites.google.com/goyurt.com.co/contables-hb/p%C3%A1gina-principal" target="_blank">Informes Contables</a>
@@ -218,5 +226,4 @@
   </div>
 </body>
 </html>
-
 
