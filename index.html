@@ -2,227 +2,134 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Plantilla Goyurt</title>
+  <title>Consulta de Código</title>
   <style>
-    /* Fuente Bogart */
-    @font-face {
-      font-family: 'Bogart';
-      src: url('Bogardbold.ttf') format('truetype');
-      font-weight: normal;
-      font-style: normal;
+    * {
+      box-sizing: border-box;
     }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     html, body {
+      margin: 0;
+      padding: 0;
       height: 100%;
-      width: 100%;
-      overflow: hidden;
-      font-family: 'Bogart', Arial, sans-serif;
+      font-family: Arial, sans-serif;
+      color: white;
     }
 
-    .container { 
-      display: flex; 
-      flex-direction: column; 
-      height: 100%; 
-      width: 100%; 
-    }
-
-    /* 🔹 Banner PC */
-    .section1 {
-      flex: 0 0 40.74%;
-      background: url("bannerp.jpg") no-repeat right center;
-      background-size: auto 100%;
-      position: relative;
-    }
-
-    .section1 img.overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 60%;   /* PC */
-      object-fit: contain;
-      pointer-events: none;
-    }
-
-    /* 🔹 Banner móvil */
-    @media (max-width: 768px) {
-      .section1 {
-        background: url("bannercel.jpg") no-repeat right center;
-        background-size: auto 100%;
-      }
-      .section1 img.overlay {
-        top: 0;
-        left: 0;
-        right: auto;
-        height: 30%;   /* móvil */
-      }
-    }
-
-    /* Bloques principales */
-    .section2 { 
-      flex: 0 0 22.22%; 
-      background: url("video.gif") no-repeat center center; 
-      background-size: cover; 
-    }
-
-    .section3 { 
-      display: flex; 
-      flex: 0 0 29.63%; 
-      overflow: hidden; 
-      min-height: 0; 
-    }
-
-    .section4 {
-      background-color: #fffae8;
-      flex: 0 0 7.41%;
-      display: flex;
-      justify-content: space-between;  
-      align-items: flex-end;           
-      padding-left: 10px;
-      padding-bottom: 2px;             
-      position: relative;
-    }
-
-    /* Imagen del logo en section4 */
-    .section4 img {
-      height: 8vh;
-      width: auto;
-      display: block;
-    }
-
-    /* División de la sección 3 */
-    .left, .right { flex: 1; min-height: 0; }
-
-    .left {
-      background-color: #bfd9d6;
+    body {
+      background: url("https://i.imgur.com/bW5NfuK.jpeg") no-repeat center center fixed;
+      background-size: cover;
       display: flex;
       flex-direction: column;
+      justify-content: center;
       align-items: center;
-      justify-content: flex-start;
-      padding: 10px;
-      gap: 6px;
+      text-align: center;
+      padding: 20px;
     }
 
-    /* 🔹 Distribución vertical igual que RD */
-    .left .link-btn:first-of-type {
-      margin-top: auto;
-    }
-    .left .link-btn:last-of-type {
-      margin-bottom: auto;
-    }
-
-    .right {
-      background-color: #fff3b1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      padding: 10px;
-      gap: 6px;
-    }
-
-    /* RD ya tenía distribución vertical */
-    .right .link-btn:first-of-type {
-      margin-top: auto;
-    }
-    .right .link-btn:last-of-type {
-      margin-bottom: auto;
-    }
-
-    /* Título */
     h2 {
-      margin-bottom: 6px;
-      color: #692100;
-      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2em;
+      max-width: 90%;
+      text-shadow: 2px 2px 4px #000;
     }
 
-    /* Botones */
-    .link-btn {
-      font-size: 15px;
-      color: #692100;
-      text-decoration: none;
-      cursor: pointer;
-      background: none;
-      border: none;
-      text-align: center;
-      font-family: 'Bogart', Arial, sans-serif;
-      width: 100%;
-      margin: 1px 0;
-    }
-    .link-btn:hover { text-decoration: underline; }
-
-    /* Pantallas grandes */
-    @media (min-width: 768px) {
-      .row { flex-wrap: nowrap; }
-      .link-btn { width: auto; margin: 0; }
-    }
-
-    /* Ajustes móvil */
-    @media (max-width: 480px) {
-      .left { gap: 2.2px; }
-      .right { gap: 2.2px; }
-      .link-btn { font-size: 12px; }
-      h2 { font-size: 18px; }
-    }
-    @media (max-width: 360px) {
-      .link-btn { font-size: 12px; }
-      h2 { font-size: 14px; }
-    }
-
-    /* 🔹 Imágenes flotantes dentro de section4 */
-    .floating-icons {
+    .form-container {
       display: flex;
-      flex-direction: row;       
-      gap: 20px;                 
-      height: 100%;              
-      justify-content: center;   
-      align-items: center;       
-      padding-right: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      width: 100%;
+      max-width: 600px;
     }
 
-    .floating-icons img {
-      height: 30%;   
-      width: auto;
-      object-fit: contain;
+    input, button {
+      font-size: 24px;
+      padding: 18px 24px;
+      border-radius: 10px;
+      border: none;
+      width: 90%;
+      max-width: 400px;
+      background-color: rgba(255, 255, 255, 0.9);
+      color: #000;
+    }
+
+    button {
+      background-color: rgba(0, 128, 128, 0.9);
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: rgba(0, 100, 100, 0.9);
+    }
+
+    #resultado {
+      margin-top: 40px;
+      font-size: 22px;
+      background-color: rgba(0, 128, 128, 0.8);
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 90%;
+      word-wrap: break-word;
+      color: white;
+    }
+
+    @media (max-width: 500px) {
+      input, button {
+        font-size: 26px;
+        padding: 20px;
+      }
+
+      #resultado {
+        font-size: 20px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="section1">
-      <img src="otrocompleto.png" alt="Overlay" class="overlay">
-    </div>
-    <div class="section2"></div>
 
-    <div class="section3">
-      <div class="left">
-        <h2>Colombiajj</h2>
-        <a class="link-btn" href="https://sites.google.com/goyurt.com.co/informe-diario-goyurtvb/p%C3%A1gina-principal" target="_blank">Ventas Diarias</a>
-        <a class="link-btn" href="https://sites.google.com/goyurt.com.co/informehb-acumuladocc/p%C3%A1gina-principal" target="_blank">Ventas Acumuladas</a>
-        <a class="link-btn" href="https://sites.google.com/goyurt.com.co/contables-hbvb/p%C3%A1gina-principal" target="_blank">Informes Contables</a>
-        <a class="link-btn" href="https://app.powerbi.com/view?r=eyJrIjoiYjc0MTIzNzctYmRhOC00ZGY1LTlkYjItZDEwYmYyZDRjZjczIiwidCI6IjNiNzgxNjRmLWEzOTUtNGQwOC04NDY1LTYwNzJlYmNjM2M4NyIsImMiOjR9" target="_blank">Dash Domicilios</a>
-        <a class="link-btn" href="https://sites.google.com/goyurt.com.co/revenuecc/p%C3%A1gina-principal" target="_blank">Revenue</a>
-        <a class="link-btn" href="https://sites.google.com/goyurt.com.co/cxcvb/p%C3%A1gina-principal" target="_blank">Cuentas por Cobrar</a>
-      </div>
-      <div class="right">
-        <h2>República Dominicana</h2>
-        <a class="link-btn" href="https://sites.google.com/goyurt.com.co/diariordhbvb/p%C3%A1gina-principal" target="_blank">Ventas Diarias</a>
-        <a class="link-btn" href="https://sites.google.com/goyurt.com.co/rddariovb/p%C3%A1gina-principal" target="_blank">Ventas Acumuladas</a>
-      </div>
-    </div>
-
-    <!-- 🔹 Última sección con logos -->
-    <div class="section4">
-      <img src="logo.png" alt="Logo">
-      <div class="floating-icons">
-        <a href="https://www.instagram.com/goyurtcolombia/" target="_blank"><img src="j1.jpg" alt="Instagram"></a>
-        <a href="https://api.whatsapp.com/send?phone=573227422689" target="_blank"><img src="j2.jpg" alt="WhatsApp"></a>
-        <a href="https://co.linkedin.com/company/goyurt" target="_blank"><img src="j3.jpg" alt="LinkedIn"></a>
-        <a href="https://www.facebook.com/GoyurtColombia" target="_blank"><img src="j4.jpg" alt="Facebook"></a>
-      </div>
-    </div>
+  <h2>DIGITE SU NÚMERO DE CÉDULA</h2>
+  <div class="form-container">
+    <input type="text" id="cedulaInput" placeholder="Ej: 12345678">
+    <button onclick="buscarCodigo()">Consultar</button>
   </div>
+
+  <div id="resultado"></div>
+
+  <script>
+    async function buscarCodigo() {
+      const cedula = document.getElementById("cedulaInput").value.trim();
+      const resultado = document.getElementById("resultado");
+
+      if (!cedula) {
+        resultado.textContent = "Por favor, ingrese una cédula.";
+        return;
+      }
+
+      try {
+        const url = "https://script.google.com/macros/s/AKfycbwpbAzIQ93a9MsoM96X37mT46EEtQt6HuYYc9lRhw4Yu63qaYNBu4-rEHXflsWap7P4Dw/exec?cedula=" + encodeURIComponent(cedula);
+        const response = await fetch(url);
+        const codigo = await response.text();
+
+        if (codigo.includes("✅")) {
+          resultado.textContent = "SU CÓDIGO ES: " + codigo.split("Código: ")[1];
+        } else if (codigo === "NO" || codigo === "sin código") {
+          resultado.textContent = "No hay código para hoy.";
+        } else {
+          resultado.textContent = codigo;
+        }
+      } catch (error) {
+        resultado.textContent = "Error consultando el código.";
+      }
+    }
+  </script>
+
 </body>
 </html>
+</body>
+</html>
+
